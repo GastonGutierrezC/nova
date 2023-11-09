@@ -7,6 +7,7 @@ import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import ProductAllInformation from './components/ProductAllInformation';
 
 function App() {
+  
   return (
     <div className="App">
       <nav className="navbar navbar-expand-lg bg-body-tertiary">
