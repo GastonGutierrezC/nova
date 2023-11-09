@@ -1,0 +1,50 @@
+.container-witness {
+    width: 300px;
+    height: 368px;
+    margin: 100px 10px ;
+    align-items: center;
+    justify-content: center;
+    background-color: #fff;
+    flex-direction: column; /* Cambiado a "column" para apilar elementos verticalmente */
+    height: auto; /* Cambiado a "auto" para adaptarse al contenido */
+    box-shadow: 0 3px 33px 10px rgb(0 0 0 / 9%);
+    z-index: 0;
+    position: relative;
+
+
+}
+
+.contenedor-testimonios {
+    display: flex;
+    flex-wrap: wrap; /* Permite que los elementos se envuelvan a la siguiente línea */
+    justify-content: 300px; /* Espaciado entre los elementos */
+    max-width: 100%; /* Establece un ancho máximo en relación al tamaño de la ventana */
+    padding: 50px; /* Añade un poco de espacio en los bordes para mayor adaptabilidad */
+    box-sizing: border-box; /* Incluye el padding en el ancho total */
+  }
+
+.image-witness {
+    height: 100%;
+    width: 300px;
+}
+
+.container-text-witness {
+    text-align: center;
+    padding: 30px;
+    font-family: Lato, sans-serif;
+    font-weight: 400;
+    width: 100%;
+    font-size: 18px;
+    line-height: 1.5rem;
+}
+
+.name-witness {
+    font-size: 1.3rem;
+}
+
+.position-witness {
+    font-size: 1.3rem;
+    margin-top: 30px;
+    padding-bottom: 30px;
+}
+

@@ -1,0 +1,31 @@
+/* AnimalTypeButtons.css */
+
+/* AnimalTypeButtons.css */
+
+/* AnimalTypeButtons.css */
+
+.AnimalTypeButtons {
+    display: flex; /* Muestra los botones en línea horizontalmente */
+    justify-content: center;
+    margin-top: 20px; /* Agregar un espacio en la parte superior de los botones */
+  }
+  
+  .AnimalTypeButtons button {
+    margin-right: 23px; /* Agrega un espacio de 23px entre los botones */
+    padding: 15px 34px; /* Ajusta el espaciado dentro de los botones */
+    background-color: #007bff; /* Color de fondo de los botones (azul) */
+    color: #000; /* Color del texto en los botones (negro) */
+    border: none; /* Quita los bordes de los botones */
+    border-radius: 10px; /* Agrega bordes curvados */
+    cursor: pointer; /* Cambia el cursor al pasar el ratón por encima */
+    transition: background-color 0.3s; /* Agrega una transición al color de fondo */
+  }
+  
+  .AnimalTypeButtons button:hover {
+    background-color: #0056b3; /* Cambia el color de fondo al oscurecerse al pasar el ratón por encima (celeste) */
+  }
+  
+  .AnimalTypeButtons button:last-child {
+    margin-right: 0; /* No añade margen al último botón para evitar espacio adicional */
+  }
+  
