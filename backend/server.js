@@ -19,8 +19,12 @@ app.use('/api/products', productRoute);
 
 app.get('/', (req, res) => {
     res.end('Welcome to the backend server');
+    console.log(PORT);
+
 });
 
 app.listen(PORT, function () {
     console.log("The NODE server is running correctly");
+    
 });
+
