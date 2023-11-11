@@ -3,11 +3,11 @@ import './Css/App.css';
 import UserList from './components/UserList';
 import AddUser from './components/AddUsers';
 import EditUser from './components/EditUser';
+import AddProduct from './components/AddProduct';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import ProductAllInformation from './components/ProductAllInformation';
 
 function App() {
-  
   return (
     <div className="App">
       <nav className="navbar navbar-expand-lg bg-body-tertiary">
@@ -27,6 +27,9 @@ function App() {
               <li className="nav-item">
                 <a className="nav-link" href="products">View Products</a>
               </li>
+              <li className = "nav-item">
+                <a className="nav-link" href="addproduct">Add Product</a>
+              </li>
             </ul>
           </div>
         </div>
@@ -38,6 +41,7 @@ function App() {
           <Route path='/adduser' element={<AddUser />} exact></Route>
           <Route path='/edituser/:idusuario' element={<EditUser />} exact></Route>
           <Route path="/products" element={<ProductAllInformation />} exact></Route>
+          <Route path='/addproduct' element={<AddProduct />} exact></Route>
         </Routes>
       </BrowserRouter>
     </div>

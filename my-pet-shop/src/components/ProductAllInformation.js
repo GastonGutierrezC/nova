@@ -25,8 +25,11 @@ function ProductAllInformation() {
             key={product.productId}
             name={product.name}
             position={`Price: ${product.price}`}
-            testimony={product.description}
-            image={"Foo2"} // I assume you have images with the same name as 'productId'
+           // testimony={product.description}
+            image={"Foo2"} // Pasa la propiedad de la imagen
+            type={product.type} // Pasa la propiedad del tipo
+            species={product.species} // Pasa la propiedad de la especie
+            quantity={product.quantity} // Pasa la propiedad de la cantidad
           />
         ))}
       </div>

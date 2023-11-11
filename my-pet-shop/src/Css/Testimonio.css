@@ -1,34 +1,62 @@
-.container-witness {
+body {
+    background-color: #BDD1DE; /* Agregado para establecer el color de fondo azul en toda la página */
+    margin: 0; /* Agregado para eliminar el margen predeterminado del body */
+}
+.witness-container {
     width: 300px;
-    height: 368px;
-    margin: 100px 10px ;
+    height: 388px;
+    margin: 10px; /* Cambiado para separar los elementos */
     align-items: center;
     justify-content: center;
-    background-color: #fff;
     flex-direction: column; /* Cambiado a "column" para apilar elementos verticalmente */
     height: auto; /* Cambiado a "auto" para adaptarse al contenido */
     box-shadow: 0 3px 33px 10px rgb(0 0 0 / 9%);
     z-index: 0;
     position: relative;
-
-
+    background-color: white;
 }
 
-.contenedor-testimonios {
+.testimonials-container {
     display: flex;
     flex-wrap: wrap; /* Permite que los elementos se envuelvan a la siguiente línea */
-    justify-content: 300px; /* Espaciado entre los elementos */
     max-width: 100%; /* Establece un ancho máximo en relación al tamaño de la ventana */
     padding: 50px; /* Añade un poco de espacio en los bordes para mayor adaptabilidad */
     box-sizing: border-box; /* Incluye el padding en el ancho total */
-  }
+    justify-content: flex-start; /* Ajusta según sea necesario */
 
-.image-witness {
-    height: 100%;
-    width: 300px;
+    /* Ajusta el espacio horizontal entre los elementos */
+    & > * {
+        margin-right: 20px; /* Establece el margen derecho entre los elementos (ajusta según sea necesario) */
+    }
+
+    /* Ajusta el espacio vertical entre las filas de elementos */
+    & > :nth-child(n) {
+        margin-bottom: 20px; /* Establece el margen inferior entre las filas de elementos (ajusta según sea necesario) */
+    }
 }
 
-.container-text-witness {
+
+/* Nuevos estilos para los títulos */
+.testimonials-container p.testimonial-type span.highlight {
+    color: black; /* Cambiado a color negro para la parte específica de props.type */
+}
+.testimonials-container p.testimonial-species span.highlight {
+    color: black; /* Cambiado a color negro para la parte específica de props.type */
+}.testimonials-container p.testimonial-quantity span.highlight {
+    color: black; /* Cambiado a color negro para la parte específica de props.type */
+}
+.testimonials-container p.testimonial-type,
+.testimonials-container p.testimonial-species,
+.testimonials-container p.testimonial-quantity {
+    color: red; /* Mantenido el color azul marino para otros títulos */
+}
+
+.witness-image {
+    height: 60%;
+    width: 90%;
+}
+
+.text-container-witness {
     text-align: center;
     padding: 30px;
     font-family: Lato, sans-serif;
@@ -38,13 +66,22 @@
     line-height: 1.5rem;
 }
 
-.name-witness {
+.witness-position {
     font-size: 1.3rem;
 }
 
-.position-witness {
-    font-size: 1.3rem;
-    margin-top: 30px;
-    padding-bottom: 30px;
+/* Estilos para el botón ADD */
+.add-button {
+    background-color: #BDD1DE; /* Color de fondo azul */
+    color: black; /* Color del texto blanco */
+    border: 2px solid black; /* Borde negro de 2px */
+    border-radius: 10px; /* Bordes curvados */
+    padding: 10px 20px; /* Espaciado interno del botón */
+    font-size: 16px; /* Tamaño del texto del botón */
+    cursor: pointer; /* Cambia el cursor al pasar sobre el botón */
+}
+
+.add-button:hover {
+    background-color: white; /* Color de fondo azul oscuro al pasar sobre el botón */
 }
 
