@@ -26,14 +26,14 @@ function AddUser() {
         };
 
         console.log(user);
-   // axios.get(`${process.env.BACKEND_URL}/api/products/showproducts`)
 
         axios.post('/api/user/adduser', user)
             .then(res => {
                 alert(res.data);
             })
             .catch(err => {
-                console.log(err);
+                console.error(err);
+                alert("Error registering user. Please try again.");
             });
     }
 
