@@ -7,7 +7,7 @@ function ProductAllInformation() {
 
   useEffect(() => {
     // Make a request to fetch all products from the server route
-    axios.get(`${process.env.BACKEND_URL}/api/products/showproducts`)
+    axios.get(`/api/products/showproducts`)
       .then((response) => {
         setProducts(response.data);
       })

@@ -7,7 +7,7 @@ function IndividualUser({ user }) {
 
     function deleteUser(userId) {
 
-        axios.post(`${process.env.BACKEND_URL}/api/user/deleteuser`, { userId: userId })
+        axios.post(`/api/user/deleteuser`, { userId: userId })
             .then((response) => {
                 alert(response.data);
                 navigate(0);
