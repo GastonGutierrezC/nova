@@ -26,8 +26,9 @@ function AddProduct() {
   const handleAddProduct = () => {
    
     console.log('Producto añadido:', product);
+   // axios.get(`${process.env.BACKEND_URL}/api/products/showproducts`)
 
-    axios.post(`${process.env.BACKEND_URL}/api/user/addproduct`)
+    axios.post('/api/user/addproduct')
       .then(res => {
         alert(res.data);
       })

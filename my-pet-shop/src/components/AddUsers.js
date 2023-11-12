@@ -15,7 +15,6 @@ function AddUser() {
 
     function signUpUser(e) {
         e.preventDefault();
-        
 
         const user = {
             firstName: firstName,
@@ -27,8 +26,9 @@ function AddUser() {
         };
 
         console.log(user);
+   // axios.get(`${process.env.BACKEND_URL}/api/products/showproducts`)
 
-        axios.post(`${process.env.BACKEND_URL}/api/user/adduser`, user)
+        axios.post('/api/user/adduser', user)
             .then(res => {
                 alert(res.data);
             })

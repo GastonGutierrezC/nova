@@ -8,7 +8,7 @@ function UserList() {
     const [userList, setUserList] = useState([]);
     useEffect(() => {
         // Make a request to fetch all users from the server route
-        axios.get(`${process.env.BACKEND_URL}/api/user/getusers`)
+        axios.get('/api/user/getusers')
             .then((response) => {
                 setUserList(response.data);
             })
