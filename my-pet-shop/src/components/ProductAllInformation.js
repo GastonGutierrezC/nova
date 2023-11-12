@@ -16,29 +16,32 @@ function ProductAllInformation() {
       });
   }, []);
 
-  return (
-    <div>
-      <h2>Food Information</h2>
-      <div className="testimonials-container">
-        {Array.isArray(products) && products.length > 0 ? (
-          products.map((product) => (
-            <Testimonial
-              key={product.productId}
-              name={product.name}
-              position={`Price: ${product.price}`}
-              // testimony={product.description}
-              image={"Foo2"} // Pasa la propiedad de la imagen
-              type={product.type} // Pasa la propiedad del tipo
-              species={product.species} // Pasa la propiedad de la especie
-              quantity={product.quantity} // Pasa la propiedad de la cantidad
-            />
-          ))
-        ) : (
-          <p>No products available</p>
-        )}
-      </div>
+// ... (código anterior)
+
+return (
+  <div>
+    <h2>Food Information</h2>
+    <div className="testimonials-container">
+      {console.log('Products:', products)}
+      {Array.isArray(products) && products.length > 0 ? (
+        products.map((product) => (
+          <Testimonial
+            key={product.productId}
+            name={product.name}
+            position={`Price: ${product.price}`}
+            image={"Foo2"}
+            type={product.type}
+            species={product.species}
+            quantity={product.quantity}
+          />
+        ))
+      ) : (
+        <p>No products available</p>
+      )}
     </div>
-  );
+  </div>
+);
+
 }
 
 export default ProductAllInformation;
