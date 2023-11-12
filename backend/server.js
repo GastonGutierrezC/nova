@@ -1,5 +1,6 @@
 const express = require('express');
-const cors = require('cors');  // Asegúrate de haber instalado el paquete cors
+const cors = require('cors');
+const bodyParser = require('body-parser');
 
 const app = express();
 const PORT = process.env.PORT;
@@ -11,11 +12,9 @@ const dbFile = require('./connection');
 const userRoute = require('./routes/user');
 const productRoute = require('./routes/product');
 
-const bodyParser = require('body-parser');
-
-app.use(cors());  // Agrega este middleware para habilitar CORS
+app.use(cors());
 app.use(bodyParser.json());
-app.use(bodyParser.urlencoded({ extended: 'true' }));
+app.use(bodyParser.urlencoded({ extended: true }));
 
 app.use('/api/user', userRoute);
 app.use('/api/products', productRoute);
@@ -24,7 +23,6 @@ app.get('/', (req, res) => {
     res.end('Welcome to the backend server');
 });
 
-app.listen(7455, function () {
+app.listen(7415, function () {
     console.log("The NODE server is running correctly");
 });
-
