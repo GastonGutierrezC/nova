@@ -1,58 +1,40 @@
 import React, { useEffect, useState } from "react";
+import IndividualUser from "./UserIndividual";
 import axios from 'axios';
 import Header from './Header.js'; 
 import Footer from "./Footer.js";
-
 function UserList() {
-    const [userList, setUserList] = useState([]);
 
+    const [userList, setUserList] = useState([]);
     useEffect(() => {
         // Make a request to fetch all users from the server route
-        axios.get('/api/user/getusers')
+        axios.get(`${process.env.BACKEND_URL}/api/user/getusers`)
             .then((response) => {
-                console.log("Server Response:", response.data);
-
-                // Verifica que la respuesta sea un array y no esté vacía
-                if (Array.isArray(response.data) && response.data.length > 0) {
-                    setUserList(response.data);
-                } else {
-                    console.error("La respuesta del servidor no es un array válido:", response.data);
-                }
+                setUserList(response.data);
             })
             .catch((error) => {
                 console.error(error);
             });
     }, []);
 
-    // Verifica que userList sea un array antes de mapearlo
-    if (!Array.isArray(userList) || userList.length === 0) {
-        console.error("userList no es un array válido:", userList);
+    // Map the list of users to IndividualUser components
+    const userComponents = userList.map(user => {
         return (
-            <div>
-                <Header />
-                <h2>Error al obtener la lista de usuarios</h2>
-                <Footer />
+            <div key={user.userId}>
+                <IndividualUser user={user} />
             </div>
         );
-    }
-
-    // Map the list of users to IndividualUser components
-    const userComponents = userList.map(user => (
-        <div key={user.userId}>
-            {/* Render your IndividualUser component with user data */}
-            {/* <IndividualUser user={user} /> */}
-        </div>
-    ));
+    });
 
     return (
         <div>
-            <Header />
-            <h2>User List</h2>
+            
+            <h2>
+                User List
+            </h2>
             {userComponents}
-            <Footer />
         </div>
     );
 }
 
 export default UserList;
-

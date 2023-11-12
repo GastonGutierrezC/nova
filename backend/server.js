@@ -1,43 +1,30 @@
 const express = require('express');
 const cors = require('cors');
-const mongoose = require('mongoose');
 const bodyParser = require('body-parser');
 
 const app = express();
-const PORT = 7555;
+const PORT = process.env.PORT;
 
-// Conectar a la base de datos (asegúrate de tener la configuración adecuada en 'connection.js')
+// Import connection
 const dbFile = require('./connection');
 
-// Middleware de CORS
-const corsOptions = {
-    origin: '*', // O ajusta esto según la URL de tu cliente
-    methods: 'GET,HEAD,PUT,PATCH,POST,DELETE',
-    credentials: true,
-    optionsSuccessStatus: 204,
-};
-app.use(cors(corsOptions));
-
-app.use(bodyParser.json());
-
-// Importar rutas y modelo de usuario
+// Import routes and user model
 const userRoute = require('./routes/user');
+const productRoute = require('./routes/product');
 
-// Configuración de CORS adicional
-app.use((req, res, next) => {
-    res.header('Access-Control-Allow-Origin', '*');
-    res.header('Access-Control-Allow-Methods', 'GET, POST, OPTIONS, PUT, PATCH, DELETE');
-    res.header('Access-Control-Allow-Headers', 'Content-Type, Authorization');
-    next();
-});
+app.use(cors());
+app.use(bodyParser.json());
+app.use(bodyParser.urlencoded({ extended: true }));
+app.use(express.json());
 
-// Ruta para agregar usuarios
-app.post('/api/user/adduser', userRoute);
+
+app.use('/api/user', userRoute);
+app.use('/api/products', productRoute);
 
 app.get('/', (req, res) => {
     res.end('Welcome to the backend server');
 });
 
-app.listen(PORT, () => {
-    console.log(`The NODE server is running correctly on port ${PORT}`);
+app.listen(7555, function () {
+    console.log("The NODE server is running correctly");
 });
