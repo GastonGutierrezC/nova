@@ -4,19 +4,19 @@ const mongoose = require('mongoose');
 const bodyParser = require('body-parser');
 
 const app = express();
-const PORT = 7445;
+const PORT = 7555;
 
 // Conectar a la base de datos (asegúrate de tener la configuración adecuada en 'connection.js')
 const dbFile = require('./connection');
 
 app.use(cors());
 app.use(bodyParser.json());
-app.use(bodyParser.urlencoded({ extended: true }));
 
 // Importar rutas y modelo de usuario
 const userRoute = require('./routes/user');
 
-app.use('/api/user', userRoute);
+// Cambia app.get a app.post para la ruta '/api/user/adduser'
+app.post('/api/user/adduser', userRoute);
 
 app.get('/', (req, res) => {
     res.end('Welcome to the backend server');
