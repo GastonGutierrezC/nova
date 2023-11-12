@@ -9,13 +9,29 @@ const PORT = 7555;
 // Conectar a la base de datos (asegúrate de tener la configuración adecuada en 'connection.js')
 const dbFile = require('./connection');
 
-app.use(cors());
+// Middleware de CORS
+const corsOptions = {
+    origin: '*', // O ajusta esto según la URL de tu cliente
+    methods: 'GET,HEAD,PUT,PATCH,POST,DELETE',
+    credentials: true,
+    optionsSuccessStatus: 204,
+};
+app.use(cors(corsOptions));
+
 app.use(bodyParser.json());
 
 // Importar rutas y modelo de usuario
 const userRoute = require('./routes/user');
 
-// Cambia app.get a app.post para la ruta '/api/user/adduser'
+// Configuración de CORS adicional
+app.use((req, res, next) => {
+    res.header('Access-Control-Allow-Origin', '*');
+    res.header('Access-Control-Allow-Methods', 'GET, POST, OPTIONS, PUT, PATCH, DELETE');
+    res.header('Access-Control-Allow-Headers', 'Content-Type, Authorization');
+    next();
+});
+
+// Ruta para agregar usuarios
 app.post('/api/user/adduser', userRoute);
 
 app.get('/', (req, res) => {
