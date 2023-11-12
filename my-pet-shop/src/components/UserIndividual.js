@@ -6,7 +6,8 @@ function IndividualUser({ user }) {
     const navigate = useNavigate();
 
     function deleteUser(userId) {
-        axios.post('/api/user/deleteuser', { userId: userId })
+
+        axios.post(`${process.env.BACKEND_URL}/api/user/deleteuser`, { userId: userId })
             .then((response) => {
                 alert(response.data);
                 navigate(0);

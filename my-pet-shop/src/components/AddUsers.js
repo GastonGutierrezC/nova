@@ -27,7 +27,7 @@ function AddUser() {
 
         console.log(user);
 
-        axios.post('/api/user/adduser', user)
+        axios.post(`${process.env.BACKEND_URL}/api/user/adduser`, user)
             .then(res => {
                 alert(res.data);
             })

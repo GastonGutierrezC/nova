@@ -7,7 +7,7 @@ function ProductAllInformation() {
 
   useEffect(() => {
     // Make a request to fetch all products from the server route
-    axios.get('/api/products/showproducts')
+    axios.get(`${process.env.BACKEND_URL}/api/products/showproducts`)
       .then((response) => {
         setProducts(response.data);
       })
@@ -25,7 +25,7 @@ function ProductAllInformation() {
             key={product.productId}
             name={product.name}
             position={`Price: ${product.price}`}
-           // testimony={product.description}
+            // testimony={product.description}
             image={"Foo2"} // Pasa la propiedad de la imagen
             type={product.type} // Pasa la propiedad del tipo
             species={product.species} // Pasa la propiedad de la especie
@@ -35,7 +35,9 @@ function ProductAllInformation() {
       </div>
     </div>
   );
+  
+  
+  
 }
 
 export default ProductAllInformation;
-

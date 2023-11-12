@@ -12,7 +12,8 @@ function EditUser() {
 
     useEffect(() => {
         // Make a request to fetch user data from the server route
-        axios.post('/api/user/getuserdata', { userId: params.idusuario })
+
+        axios.post(`${process.env.BACKEND_URL}/api/user/getuserdata`, { userId: params.idusuario })
             .then((response) => {
                 const userData = response.data[0];
                 setName(userData.name);
