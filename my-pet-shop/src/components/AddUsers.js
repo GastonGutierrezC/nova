@@ -15,6 +15,7 @@ function AddUser() {
 
     function signUpUser(e) {
         e.preventDefault();
+        
 
         const user = {
             firstName: firstName,
