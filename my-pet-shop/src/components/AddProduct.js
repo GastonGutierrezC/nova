@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import '../Css/AddProduct.css'
+import '../Css/AddProduct.css';
 import axios from 'axios';
 
 function AddProduct() {
@@ -10,10 +10,7 @@ function AddProduct() {
     quantity: '',
     image: '',
     category: '',
-
   });
-
-  //vdsdsdvsdvsdv
 
   const handleInputChange = (e) => {
     const { name, value } = e.target;
@@ -24,18 +21,16 @@ function AddProduct() {
   };
 
   const handleAddProduct = () => {
-   
     console.log('Producto añadido:', product);
-   // axios.get(`${process.env.BACKEND_URL}/api/products/showproducts`)
 
-    axios.post('/api/user/addproduct')
+    axios.post('/api/user/addproduct', product)
       .then(res => {
         alert(res.data);
       })
       .catch(err => {
         console.log(err);
       });
-    
+
     setProduct({
       name: '',
       description: '',
@@ -54,7 +49,7 @@ function AddProduct() {
           <label>Product name:</label>
           <input
             type="text"
-            name="nombre"
+            name="name"
             value={product.name}
             onChange={handleInputChange}
             className="input-field"
@@ -62,21 +57,20 @@ function AddProduct() {
         </div>
 
         <div className="form-section">
-          <label>Product descripcion:</label>
+          <label>Product description:</label>
           <textarea
-            name="descripcion"
+            name="description"
             value={product.description}
             onChange={handleInputChange}
             className="input-field"
           ></textarea>
         </div>
 
-
         <div className="form-section">
           <label>Product price:</label>
           <input
             type="text"
-            name="precio"
+            name="price"
             value={product.price}
             onChange={handleInputChange}
           />
@@ -86,7 +80,7 @@ function AddProduct() {
           <label>Quantity available:</label>
           <input
             type="text"
-            name="cantidad"
+            name="quantity"
             value={product.quantity}
             onChange={handleInputChange}
           />
@@ -96,7 +90,7 @@ function AddProduct() {
           <label>Product image:</label>
           <input
             type="text"
-            name="imagen"
+            name="image"
             value={product.image}
             onChange={handleInputChange}
           />
@@ -106,7 +100,7 @@ function AddProduct() {
           <label>Product category:</label>
           <input
             type="text"
-            name="categoria"
+            name="category"
             value={product.category}
             onChange={handleInputChange}
           />
@@ -118,6 +112,6 @@ function AddProduct() {
       </form>
     </div>
   );
-};
+}
 
 export default AddProduct;
