@@ -11,8 +11,14 @@ function UserList() {
         // Make a request to fetch all users from the server route
         axios.get('/api/user/getusers')
             .then((response) => {
-                console.log(response.data); // Agrega esta línea para ver la respuesta del servidor
-                setUserList(response.data);
+                console.log("Server Response:", response.data);
+
+                // Verifica que la respuesta sea un array
+                if (Array.isArray(response.data)) {
+                    setUserList(response.data);
+                } else {
+                    console.error("La respuesta del servidor no es un array:", response.data);
+                }
             })
             .catch((error) => {
                 console.error(error);
