@@ -1,28 +1,26 @@
 const express = require('express');
 const cors = require('cors');
+const mongoose = require('mongoose');
 const bodyParser = require('body-parser');
 
 const app = express();
-const PORT = process.env.PORT;
+const PORT = 7455;
 
-// Import connection
+// Conectar a la base de datos (asegúrate de tener la configuración adecuada en 'connection.js')
 const dbFile = require('./connection');
-
-// Import routes and user model
-const userRoute = require('./routes/user');
-const productRoute = require('./routes/product');
 
 app.use(cors());
 app.use(bodyParser.json());
-app.use(bodyParser.urlencoded({ extended: true }));
+
+// Importar rutas y modelo de usuario
+const userRoute = require('./routes/user');
 
 app.use('/api/user', userRoute);
-app.use('/api/products', productRoute);
 
 app.get('/', (req, res) => {
     res.end('Welcome to the backend server');
 });
 
-app.listen(7415, function () {
-    console.log("The NODE server is running correctly");
+app.listen(PORT, () => {
+    console.log(`The NODE server is running correctly on port ${PORT}`);
 });
