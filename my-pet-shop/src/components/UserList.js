@@ -13,11 +13,11 @@ function UserList() {
             .then((response) => {
                 console.log("Server Response:", response.data);
 
-                // Verifica que la respuesta sea un array
-                if (Array.isArray(response.data)) {
+                // Verifica que la respuesta sea un array y no esté vacía
+                if (Array.isArray(response.data) && response.data.length > 0) {
                     setUserList(response.data);
                 } else {
-                    console.error("La respuesta del servidor no es un array:", response.data);
+                    console.error("La respuesta del servidor no es un array válido:", response.data);
                 }
             })
             .catch((error) => {
@@ -26,9 +26,15 @@ function UserList() {
     }, []);
 
     // Verifica que userList sea un array antes de mapearlo
-    if (!Array.isArray(userList)) {
-        console.error("userList no es un array:", userList);
-        return null; // o algún otro manejo de error que prefieras
+    if (!Array.isArray(userList) || userList.length === 0) {
+        console.error("userList no es un array válido:", userList);
+        return (
+            <div>
+                <Header />
+                <h2>Error al obtener la lista de usuarios</h2>
+                <Footer />
+            </div>
+        );
     }
 
     // Map the list of users to IndividualUser components
