@@ -12,9 +12,16 @@ function UserList() {
         axios.get('/api/user/getusers')
             .then((response) => {
                 console.log("Server Response:", response.data);
-
-                // Verifica que la respuesta sea un array y no esté vacía
-                if (Array.isArray(response.data) && response.data.length > 0) {
+    
+                // Verifica si la respuesta es un archivo HTML
+                const isHTML = /^<!DOCTYPE html>/.test(response.data);
+    
+                if (isHTML) {
+                    // Convierte el archivo HTML en un array
+                    const htmlArray = response.data.split(/<\/?[^>]+(>|$)/g);
+                    console.log("HTML Array:", htmlArray);
+                    // Hacer algo con el array, si es necesario
+                } else if (Array.isArray(response.data) && response.data.length > 0) {
                     setUserList(response.data);
                 } else {
                     console.error("La respuesta del servidor no es un array válido:", response.data);
@@ -24,6 +31,7 @@ function UserList() {
                 console.error(error);
             });
     }, []);
+    
 
     // Verifica que userList sea un array antes de mapearlo
     if (!Array.isArray(userList) || userList.length === 0) {
