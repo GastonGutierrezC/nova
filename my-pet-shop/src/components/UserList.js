@@ -11,6 +11,7 @@ function UserList() {
         // Make a request to fetch all users from the server route
         axios.get('/api/user/getusers')
             .then((response) => {
+                console.log(response.data); // Agrega esta línea para ver la respuesta del servidor
                 setUserList(response.data);
             })
             .catch((error) => {
@@ -20,7 +21,7 @@ function UserList() {
 
     // Verifica que userList sea un array antes de mapearlo
     if (!Array.isArray(userList)) {
-        console.error("userList no es un array");
+        console.error("userList no es un array:", userList);
         return null; // o algún otro manejo de error que prefieras
     }
 
@@ -42,4 +43,3 @@ function UserList() {
 }
 
 export default UserList;
-
