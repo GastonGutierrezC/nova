@@ -38,5 +38,5 @@
       "last 1 safari version"
     ]
   },
-  "proxy": "http://localhost:7500/"
+  "proxy": "http://novateam.azurewebsites.net"
 }
